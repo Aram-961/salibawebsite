@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import Footer from "@components/Footer";
 
 import '@/styles/globals.css'
 
@@ -13,10 +14,11 @@ const RootLayout = ({ children }) => {
         <html lang='eng'>
             <body>
                 <div>
-                        <div>
-                            <Nav />
-                            {children}
-                        </div>
+                    <div>
+                        <Nav />
+                        {children}
+                        <Footer />
+                    </div>
                 </div>
             </body>
         </html>

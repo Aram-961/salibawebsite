@@ -9,7 +9,7 @@ import MilkIcon2 from "@public/assets/images/MilkIcon2.png";
 
 import CowIcon from "@public/assets/icons/cow-White.svg";
 import CowBlack from "@public/assets/icons/Cowicon.svg";
-import CowImage from "@public/assets/images/ourStory.png";
+
 
 import DataCard from "@static/data/card";
 
@@ -63,21 +63,28 @@ const Home = () => {
             id: '1',
             image: '../assets/images/butter.png',
             title: 'Butter',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed'
+            description: 'Lorem ipsum dolor sit amet,, <br> consectetur adipiscing elit, sed'
         },
 
         {
             id: '2',
             image: '../assets/images/MilkCup.png',
             title: 'Butter',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed'
+            description: 'Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed'
         },
 
         {
             id: '3',
             image: '../assets/images/cheese.png',
             title: 'Butter',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed'
+            description: `Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed`
+        },
+
+        {
+            id: '4',
+            image: '../assets/images/cheese.png',
+            title: 'Butter',
+            description: 'Lorem ipsum dolor sit amet, <br> consectetur adipiscing elit, sed'
         },
     ]
 
@@ -209,7 +216,7 @@ const Home = () => {
             </section>
 
             {/* product */}
-            <section className="pt-36">
+            <section className=" flex flex-col items-center pt-52 pb-10">
                 <h1 className="text-center text-4xl pb-5">Products</h1>
                 <div className="flex justify-center items-center gap-10">
                     <div className="w-[60px] h-[2px] bg-black" />
@@ -217,20 +224,21 @@ const Home = () => {
                     <div className="w-[60px] h-[2px] bg-black" />
                 </div>
 
-                <div>
-                    {
-                        products.map((items) => (
-                            <div key={items.id}>
-                                <div>
-                                    <img src={items.image} alt="" />
-                                </div>
-                                <div>
-                                    <h1>{items.title}</h1>
-                                    <h2>{items.description}</h2>
-                                </div>
+                <div className="flex gap-24 justify-center pt-16">
+                    {products.map((item) => (
+                        <div className="flex flex-col items-center" key={item.id}>
+                            <div>
+                                <img src={item.image} alt="" />
                             </div>
-                        ))
-                    }
+                            <div className="text-center pt-5">
+                                <h1 className="pt-3">{item.title}</h1>
+                                <h2 className="pt-3" dangerouslySetInnerHTML={{ __html: item.description }}></h2>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="pt-5">
+                    <button className="btn mt-3">View Product</button>
                 </div>
             </section>
         </div>
