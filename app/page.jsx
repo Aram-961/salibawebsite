@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import Image from "next/legacy/image";
 
-import MilkIcon1 from "@public/assets/images/MilkIcon.png";
-import MilkIcon2 from "@public/assets/images/MilkIcon2.png";
+import MilkIcon1 from "@public/assets/images/MilkImage.png";
+import MilkIcon2 from "@public/assets/images/MilkImage2.png";
 
 import CowIcon from "@public/assets/icons/cow-White.svg";
 import CowBlack from "@public/assets/icons/Cowicon.svg";
@@ -90,6 +90,7 @@ const Home = () => {
 
     return (
         <div className="">
+
             <div
                 className="relative"
                 style={{
@@ -98,45 +99,43 @@ const Home = () => {
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
                     backgroundSize: "cover",
-                    zIndex: -1,
                 }}
-            />
-
-            {/* header */}
-            <div className="font flex-center pt-32 absolute top-60 left-0 right-0">
-                <h1 className="text-white md:text-8xl pb-5">Milk & More</h1>
-                <h2 className="text-white md:text-3xl pb-5">Fresh Local Delivered</h2>
-                <button className="btn">View Our Products</button>
+            >
+                <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+                <div className="text-center pt-52 z-20 relative">
+                    <h1 className="font text-white text-6xl md:text-9xl pb-5">Milk & More</h1>
+                    <h2 className="font text-white text-3xl md:text-5xl pb-5">Fresh Local Delivered</h2>
+                    <button className="btn font md:text-2xl mt-5">View Our Products</button>
+                </div>
             </div>
 
             {/* Welcome section */}
 
-            <section className="bg-[#2E3090] min-h-[25vh] w-full">
+            <section className="bg-[#2E3090] min-h-[36vh] w-full">
                 <div className="flex items-center justify-center relative">
-                    <div>
-                        <div className="absolute top-0 left-0">
-                            <Image src={MilkIcon1} />
+                    <div className="hidden md:block">
+                        <div className="absolute top-0 left-0 max-w-full">
+                            <Image src={MilkIcon2} className="object-cover" />
                         </div>
-                        <div className="absolute top-0 right-0">
-                            <Image src={MilkIcon2} />
+                        <div className="absolute top-0 right-0 max-w-full">
+                            <Image src={MilkIcon1} className="object-cover" />
                         </div>
                     </div>
 
                     <div className="text-center pt-10">
-                        <h1 className="text-white md:text-5xl pb-10">
-                            Welcome To Our Family
-                        </h1>
+                        <h1 className="text-white text-3xl md:text-5xl pb-4 md:pb-10">Welcome To Our Family</h1>
                         <Image src={CowIcon} className="" />
-                        <p className=" text-white break-before-all md:text-3xl pb-5">
-                            Here you will find a wide range of healthy and fresh products that
-                            , <br /> were proudly produced by our farm
+                        <p className="text-white break-before-all text-xl mx-5 md:text-3xl pb-5">
+                            Here you will find a wide range of healthy and fresh products that, <br className="hidden md:block" /> were
+                            proudly produced by our farm
                         </p>
                     </div>
                 </div>
             </section>
 
+
             {/* Cards */}
-            <section className="flex items-center justify-center gap-20 pt-20 pb-20">
+            <section className="flex flex-col md:flex-row items-center justify-center gap-20 pt-20 pb-20">
                 {DataCard.map((card) => {
                     return (
                         <div key={card.id} className="flex flex-col items-center">
@@ -166,17 +165,17 @@ const Home = () => {
                     }}
                 >
                     <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-                    <div className="mx-52 pt-52 z-20 relative">
-                        <h1 className="font whatfresh md:text-8xl pb-5">What's Fresh</h1>
-                        <h2 className="font text-white md:text-4xl pb-5">
+                    <div className="text-center md:mx-52 pt-52 z-20 relative">
+                        <h1 className="font whatfresh text-5xl md:text-8xl pb-5">What's Fresh</h1>
+                        <h2 className="font text-white text-4xl md:text-4xl pb-5">
                             From our Family ,<br />
                             To Yours
                         </h2>
-                        <p className="text-white text-2xl">
+                        <p className="text-white text-lg md:text-2xl">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do{" "}
-                            <br /> eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Lorem ipsum dolor <br /> sit amet, consectetur adipiscing elit,
-                            sed do eiusmod tempor incididun <br />t ut labore et dolore magna
+                            <br className="hidden md:block" /> eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Lorem ipsum dolor <br className="hidden md:block" /> sit amet, consectetur adipiscing elit,
+                            sed do eiusmod tempor incididun <br className="hidden md:block" />t ut labore et dolore magna
                             aliqua.
                         </p>
                     </div>
@@ -192,22 +191,22 @@ const Home = () => {
                         <div className="w-[60px] h-[2px] bg-black" />
                     </div>
                     {/* our story card */}
-                    <div className="grid grid-cols-2 justify-center flex-shrink-0 pt-24">
+                    <div className="grid grid-cols-1 md:grid-cols-2 justify-center flex-shrink-0 pt-24">
                         <div>
                             <img src="../assets/images/ourStory.png" alt="" />
                         </div>
                         <div className="flex flex-col items-center bg-[#FFEFC6]">
-                            <div className="flex justify-center items-center gap-10 mt-5 px-16 p-3 bg-[#FDD976] rounded-[20px] cursor-pointer">
-                                <span className="bg-[#FEC321] px-5 p-1 rounded-[10px]">1995</span>
-                                <span>1996</span>
-                                <span>1997</span>
-                                <span>1998</span>
+                            <div className="flex justify-center items-center gap-7 md:gap-10 mt-5 px-0 md:px-16 p-3 bg-[#FDD976] rounded-[20px] cursor-pointer">
+                                <span className="bg-[#FEC321] mx-5 md:px-5 p-1 rounded-[10px]">1995</span>
+                                <span className="">1996</span>
+                                <span className="">1997</span>
+                                <span className="mx-3">1998</span>
                             </div>
-                            <div className="text-center pt-10">
+                            <div className="text-center pt-10 pb-20">
                                 <h1 className="pt-5 text-4xl">Our Story</h1>
                                 <p className="pt-5">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut  labore et dolore magna aliqua. <br />
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br /> sed do eiusmod tempor incididunt ut  labore et dolore magna aliqua.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br className="hidden md:block" /> sed do eiusmod tempor incididunt ut  labore et dolore magna aliqua. <br />
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br className="hidden md:block" /> sed do eiusmod tempor incididunt ut  labore et dolore magna aliqua.
                                 </p>
                             </div>
                         </div>
@@ -216,7 +215,7 @@ const Home = () => {
             </section>
 
             {/* product */}
-            <section className=" flex flex-col items-center pt-52 pb-10">
+            <section className="flex flex-col items-center pt-52 pb-16">
                 <h1 className="text-center text-4xl pb-5">Products</h1>
                 <div className="flex justify-center items-center gap-10">
                     <div className="w-[60px] h-[2px] bg-black" />
@@ -224,7 +223,7 @@ const Home = () => {
                     <div className="w-[60px] h-[2px] bg-black" />
                 </div>
 
-                <div className="flex gap-24 justify-center pt-16">
+                <div className="flex flex-col md:flex-row gap-24 justify-center pt-16">
                     {products.map((item) => (
                         <div className="flex flex-col items-center" key={item.id}>
                             <div>

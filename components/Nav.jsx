@@ -29,13 +29,13 @@ const Nav = () => {
             className='text-white text-2xl'
             href="/farm"
           >
-            Contact
+            AboutU  s
           </Link>
         </div>
       </div>
 
       {/* Mobile Nav */}
-      <div className='sm:hidden'>
+      <div className='hidden'>
         <div>
           <div className='font flex gap-6'>
             <Link
