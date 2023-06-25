@@ -1,0 +1,17 @@
+.HeroBg {
+    background-image: url('../public/assets/background/cowsbg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+    max-width: 100vw;
+}
+
+.MainBg {
+    background: url("../public/assets/background/cowsBg2.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+    max-width: 100vw;
+}
