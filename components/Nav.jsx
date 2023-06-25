@@ -1,62 +1,65 @@
 'use client'
 
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from "next/link";
+import { useState } from "react"
+// import { RiMenu2Fill } from 'react-icons/ri';
 
-import { Fade as Hamburger } from 'hamburger-react'
 
-const Nav = () => {
+import { Cross as Hamburger } from 'hamburger-react'
 
-  // for navigation responsive 
-  const [toggleDrop, setToggleDrop] = useState(false);
+const Navbar = () => {
+  const [open, setIsOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsOpen(!open)
+  }
 
   return (
-    <nav className='flex justify-between items-center bg-[#2E3090] p-3 px-20'>
-      <Link
-        href='/'
-      >
-        <p className='text-white text-[30px]'>Logo</p>
-      </Link>
 
-      {/* Desktop Nav */}
-      <div className='sm:flex hidden'>
-        <div className='font flex gap-6'>
-          <Link
-            className='text-white text-2xl'
-            href="/farm"
-          >
-            Farm
-          </Link>
-          <Link
-            className='text-white text-2xl'
-            href="/farm"
-          >
-            Products
-          </Link>
-          <Link
-            className='text-white text-2xl'
-            href="/farm"
-          >
-            About
-          </Link>
-        </div>
-      </div>
+    // check why hamburgers are not showing when the navbar is opened
 
-      {/* Mobile Nav */}
-      <div className='hidden md:flex'>
-        <div className='flex'>
-          {toggleDrop && (
-            <div className=''>
-              <Hamburger toggled={toggleDrop} toggle={setToggleDrop} direction="right" duration={0.8} />
-              <Link href="/contact">
-                Contact
-              </Link>
-            </div>
-          )}
-        </div>
+    <nav className="fixed bg-[#2E3090] p-5 z-40 w-full">
+      {/* Mobile nav */}
+      <div className="md:hidden flex items-center justify-between">
+        <Link href="/home" className="text-white text-3xl">
+          Logo
+        </Link>
+        <button onClick={handleMenuClick}>
+          {open ? 'Close' : 'Menu'}
+        </button>
       </div>
+      {/* Nav Links */}
+      {open && (
+        <div className="fixed top-0 left-0 right-0 bottom-0 bg-[#2E3090] flex justify-center items-center z-30">
+          <div className="flex flex-col gap-5 text-center">
+            <Link
+              href=""
+              className="text-white text-xl"
+              onClick={handleMenuClick}
+            >
+              Farm
+            </Link>
+            <Link
+              href=""
+              className="text-white text-xl"
+              onClick={handleMenuClick}
+            >
+              About
+            </Link>
+            <Link
+              href=""
+              className="text-white text-xl"
+              onClick={handleMenuClick}
+            >
+              Products
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
+
+
   )
 }
 
-export default Nav
+export default Navbar;
